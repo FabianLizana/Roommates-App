@@ -1,0 +1,16 @@
+{
+  "roommates": [
+    {
+      "id": "79d3fd74",
+      "nombre": "Saloni Saha",
+      "debe": 0,
+      "recibe": 0
+    },
+    {
+      "id": "3fc3bf5f",
+      "nombre": "Kübra Kocabıyık",
+      "debe": 0,
+      "recibe": 0
+    }
+  ]
+}

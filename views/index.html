@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafío - Room Mates</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/assets/css/spinner/index.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    
+  </head>
+  <body>
+    <header>
+      <h1 class="py-5 fw-bolder my-0">
+        Roommates App 📝
+        <div class="separador"></div>
+      </h1>
+    </header>
+
+    <main class="py-3 px-md-1">
+      <div class="row w-100 m-auto">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="seccion_agregar_roommate rounded text-white pt-3">
+            <h5>Roommates</h5>
+            <button class="btn text-white mb-2" onclick="nuevoRoommate()">
+              Agregar roommate
+            </button>
+            <div id="wrapperRoommatesTable">
+              <table class="table">
+                <thead class="text-white">
+                  <th>Nombre</th>
+                  <th>Debe</th>
+                  <th>Recibe</th>
+                  <th>Acciones</th>
+                </thead>
+                <tbody class="text-white" id="roommates">
+                  <tr>
+                    <td colspan="4"><div class="loader"></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0">
+          <div
+            class="rounded p-2 m-auto p-4 seccion_agregar_gasto d-flex flex-column justify-content-center"
+          >
+            <h4>Agregar Gasto</h4>
+            <hr class="bg-light w-50 mx-auto" />
+
+            <form
+              class="d-flex flex-column align-items-center"
+              id="formulario_agregar_gasto"
+            >
+              <label for="roommatesSelect">Roommate</label>
+              <select class="form-control mb-2" id="roommatesSelect" required>
+                <option value="">Selecciona una opción</option>
+              </select>
+              <label for="descripcion">Descripción</label>
+              <textarea class="form-control mb-2" id="descripcion" required>
+  Articulos de limpieza</textarea
+              >
+
+              <label for="monto">Monto:</label>
+              <input
+                class="form-control mb-2"
+                id="monto"
+                type="number"
+                value="15000"
+                required
+              />
+              <div class="d-block my-1">
+                <button type="submit" class="btn text-white m-auto">
+                  Agregar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-4 mt-3 mt-lg-0">
+          <div class="seccion_historial rounded pt-3 text-white">
+            <h4>Historial</h4>
+            <hr class="bg-light w-25 mx-auto" />
+            <div class="contenedor_tabla_historial w-100">
+              <table class="table text-white">
+                <thead>
+                  <th>Nombre</th>
+                  <th>Comentario</th>
+                  <th>Monto</th>
+                  <th>Acciones</th>
+                </thead>
+                <tbody id="gastosHistorial" class="text-white">
+                  <tr>
+                    <td colspan="4"><div class="loader"></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="border rounded p-2 m-auto p-4">
+                <h4>Editar Gasto</h4>
+                <hr class="bg-light w-25 mx-auto" />
+
+                <form
+                  class="d-flex flex-column align-items-center"
+                  id="form_editar_gasto"
+                >
+                  <label for="roommatesSelectModal">Roommate</label>
+                  <select
+                    class="form-control w-50 mb-2"
+                    id="roommatesSelectModal"
+                    disabled
+                    required
+                  ></select>
+                  <label for="descripcionModal">Descripción</label>
+                  <textarea
+                    class="form-control w-50 mb-2"
+                    id="descripcionModal"
+                    required
+                  >
+      Articulos de limpieza</textarea
+                  >
+
+                  <label for="montoModal">Monto:</label>
+                  <input
+                    class="form-control w-50 mb-2"
+                    id="montoModal"
+                    type="number"
+                    value="20000"
+                    required
+                  />
+
+                  <div class="d-block my-1">
+                    <button type="submit" class="btn text-white m-auto">
+                      Editar Gasto
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+ 
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js "
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="/assets/js/index.js"></script>
+    <script>
+      const textoObjetivo = $("#footer_tag")[0];
+
+      var typewriter = new Typewriter(textoObjetivo, {
+        strings: "Developed By:",
+        autoStart: true,
+        loop: true,
+        delay: 75,
+      });
+    </script>
+  </body>
+</html>

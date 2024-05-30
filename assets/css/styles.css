@@ -1,0 +1,55 @@
+body {
+  text-align: center;
+  font-family: "Domine", serif;
+}
+header {
+  background: rgb(121,9,47);
+background: linear-gradient(90deg, rgba(121,9,47,1) 32%, rgba(0,212,255,1) 100%, rgba(2,0,36,0.40116715631565125) 100%);  
+}
+main {
+  background: rgb(121,9,47);
+background: linear-gradient(90deg, rgba(121,9,47,1) 32%, rgba(0,212,255,1) 100%, rgba(2,0,36,0.40116715631565125) 100%);  
+}
+
+header h1 {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.modal-body {
+  color: black;
+  text-shadow: none;
+}
+
+button {
+  background: #0000ff !important;
+}
+i {
+  cursor: pointer;
+}
+
+.seccion_agregar_roommate,
+.seccion_historial {
+  background-color: grey;
+  border: 1px solid black;
+}
+.seccion_agregar_gasto {
+  background-color: white;
+  border: 1px solid black;
+  height: 100%;
+}
+
+#wrapperRoommatesTable {
+  max-height: 400px !important;
+  overflow-y: auto;
+  background-color: black;
+}
+
+#descripcion {
+  resize: none;
+  height: 7rem;
+}
+.contenedor_tabla_historial {
+  overflow: auto;
+  background-color: black;
+}
